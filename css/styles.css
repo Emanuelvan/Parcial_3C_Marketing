@@ -4,7 +4,7 @@
 body {
     font-family: 'Inter', sans-serif;
     /* --- FONDO CON IMAGEN --- */
-    background-image: url('/Imagenes/Fondo.jfif');
+    background-image: url('https://raw.githubusercontent.com/Emanuelvan/Parcial_3C_Marketing/refs/heads/main/Imagenes/Fondo.jfif');
     background-color: #1A1A1A;
     background-size: cover;
     background-position: center center;
