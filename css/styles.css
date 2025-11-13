@@ -1,0 +1,37 @@
+/* Estilo para la fuente Inter (preferida por Tailwind) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* --- FONDO CON IMAGEN --- */
+    background-image: url('/Imagenes/Fondo.jfif');
+    background-color: #1A1A1A;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+/* Estilos para el scrollbar (opcional pero estético) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4B4B4B;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1A1A1A;
+}
+
+/* Estilo para el botón de filtro activo */
+.filter-btn.active {
+    background-color: #FCA311;
+    color: #1A1A1A;
+    font-weight: bold;
+}

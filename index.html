@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetStyle by Juan Andrés</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- PayPal Sandbox SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AYkNq8qYm72nmxHA5OSh7W5D0OQFUk9oE-nOSYHYB2GF7FD4tgZznP2_I9gM56OPL41IlDDsEMH30nLl&currency=USD"></script>
+</head>
+<body class="text-blanco-cemento">
+
+    <!-- Configuración de colores de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'urban-black': '#1A1A1A',
+                        'blanco-cemento': '#F5F5F5',
+                        'gris-asfalto': '#4B4B4B',
+                        'naranja-neon': '#FCA311',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Scripts modulares -->
+    <script src="js/config.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/rendering.js"></script>
+    <script src="js/paypal.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Contenedor principal -->
+    <div class="container mx-auto max-w-7xl p-4">
+
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-center py-6 border-b border-blanco-cemento mb-8">
+            <h1 class="text-4xl font-bold text-blanco-cemento tracking-tighter">
+                StreetStyle <span class="text-naranja-neon">.</span>
+            </h1>
+            <nav class="flex gap-2 mt-4 md:mt-0" id="filtros-container">
+                <button class="filter-btn text-blanco-cemento active py-2 px-4 rounded-lg transition-all duration-300 hover:bg-gris-asfalto hover:text-blanco-cemento" data-categoria="all">Todos</button>
+                <button class="filter-btn text-blanco-cemento py-2 px-4 rounded-lg transition-all duration-300 hover:bg-gris-asfalto hover:text-blanco-cemento" data-categoria="Hoodies">🧥 Hoodies</button>
+                <button class="filter-btn text-blanco-cemento py-2 px-4 rounded-lg transition-all duration-300 hover:bg-gris-asfalto hover:text-blanco-cemento" data-categoria="Gorras">🧢 Gorras</button>
+                <button class="filter-btn text-blanco-cemento py-2 px-4 rounded-lg transition-all duration-300 hover:bg-gris-asfalto hover:text-blanco-cemento" data-categoria="Busos oversize">👕 Busos</button>
+            </nav>
+            <div class="relative mt-4 md:mt-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blanco-cemento" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-naranja-neon text-urban-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </div>
+        </header>
+
+        <!-- Contenido Principal: Productos y Carrito -->
+        <div class="flex flex-col lg:flex-row gap-8">
+
+            <!-- Columna de Productos -->
+            <main class="w-full lg:w-2/3">
+                <h2 class="text-3xl text-blanco-cemento font-semibold mb-6">Nuestra Colección</h2>
+                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Los productos se renderizarán aquí -->
+                </div>
+            </main>
+
+            <!-- Columna de Carrito -->
+            <aside class="w-full lg:w-1/3 p-6 bg-blanco-cemento rounded-lg shadow-lg text-urban-black" style="align-self: flex-start; position: sticky; top: 2rem;">
+                <h2 class="text-2xl font-semibold mb-4 border-b border-gris-asfalto pb-2">Tu Carrito</h2>
+                
+                <!-- Mensaje de carrito vacío -->
+                <div id="cart-empty-msg" class="text-center text-gris-asfalto py-4">
+                    Tu carrito está vacío.
+                </div>
+
+                <!-- Items del Carrito -->
+                <div id="cart-items" class="divide-y divide-gray-300 max-h-64 overflow-y-auto">
+                    <!-- Los items del carrito se renderizarán aquí -->
+                </div>
+
+                <!-- Totales y Pago -->
+                <div id="cart-summary" class="mt-6 border-t border-gris-asfalto pt-4 hidden">
+                    <div class="flex justify-between items-center text-xl font-bold">
+                        <span>Total:</span>
+                        <span id="cart-total" class="text-naranja-neon">COP 0</span>
+                    </div>
+
+                    <button id="clear-cart-btn" class="mt-4 w-full text-center text-sm text-gris-asfalto hover:text-red-500 transition-colors">
+                        Vaciar Carrito
+                    </button>
+
+                    <!-- Contenedor de PayPal -->
+                    <div id="paypal-button-container" class="mt-6">
+                        <!-- Los botones de PayPal se renderizarán aquí -->
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
